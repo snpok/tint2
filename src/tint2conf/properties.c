@@ -1768,7 +1768,7 @@ GdkPixbuf *load_icon(const gchar *name)
     process_events();
 
     int size = 22;
-    char *path = get_icon_path(icon_theme, name, size, FALSE);
+    char *path = get_icon_path(icon_theme, name, size, FALSE, TRUE);
     GdkPixbuf *pixbuf = path ? gdk_pixbuf_new_from_file_at_size(path, size, size, NULL) : NULL;
     free(path);
     return pixbuf;

@@ -766,7 +766,7 @@ void add_icon_path_to_cache(IconThemeWrapper *wrapper, const char *icon_name, in
     g_free(key);
 }
 
-char *get_icon_path(IconThemeWrapper *wrapper, const char *icon_name, int size, gboolean use_fallbacks)
+char *get_icon_path(IconThemeWrapper *wrapper, const char *icon_name, int size, gboolean use_fallbacks, gboolean use_defaults)
 {
     if (debug_icons)
         fprintf(stderr,
@@ -804,7 +804,16 @@ char *get_icon_path(IconThemeWrapper *wrapper, const char *icon_name, int size, 
     }
 
     if (!use_fallbacks)
-        goto notfound;
+    {
+        if (use_defaults)
+        {
+            goto notfound;
+        }
+        else 
+        {
+            return NULL;
+        }
+    }
     fprintf(stderr, YELLOW "tint2: Icon not found in default theme: %s" RESET "\n", icon_name);
     load_fallbacks(wrapper);
 
