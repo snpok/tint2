@@ -304,6 +304,22 @@ Imlib_Image task_get_icon(Window win, int icon_size)
     Imlib_Image img = NULL;
 
     if (!img) {
+        XClassHint hints;
+
+        if (XGetClassHint(server.display, win, &hints))
+        {
+            char *new_icon_path = get_icon_path(icon_theme_wrapper, hints.res_name, icon_size, FALSE, FALSE);
+            if (new_icon_path)
+            {
+                img = load_image(new_icon_path, TRUE);
+                free(new_icon_path);
+            }
+            XFree(hints.res_class);
+            XFree(hints.res_name);
+        }
+    }
+
+    if (!img) {
         int len;
         gulong *data = server_get_property(win, server.atom._NET_WM_ICON, XA_CARDINAL, &len);
         if (data) {

@@ -118,7 +118,6 @@ void init_launcher_panel(void *p)
     schedule_panel_redraw();
     instantiate_area_gradients(&launcher->area);
 
-    load_icon_themes();
     launcher_load_icons(launcher);
 }
 

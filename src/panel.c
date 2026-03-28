@@ -249,6 +249,7 @@ void init_panel()
         p->separator_list = NULL;
         init_panel_size_and_position(p);
         instantiate_area_gradients(&p->area);
+        load_icon_themes();
         // add children according to panel_items
         for (int k = 0; k < strlen(panel_items_order); k++) {
             if (panel_items_order[k] == 'L')
