@@ -292,10 +292,10 @@ void on_change_systray(void *obj)
     }
 
     TrayWindow *traywin;
-    GSList *l;
+    GSList l = *systray.list_icons;
     int i;
-    for (i = 1, l = systray.list_icons; l; i++, l = l->next) {
-        traywin = (TrayWindow *)l->data;
+    for (i = 1;; i++) {
+        traywin = (TrayWindow *)l.data;
 
         traywin->y = posy;
         traywin->x = posx;
@@ -349,6 +349,12 @@ void on_change_systray(void *obj)
         }
         if (!traywin->reparented)
             reparent_icon(traywin);
+
+        if (!l.next)
+        {
+            break;
+        }
+        l = *l.next;
     }
     refresh_systray = TRUE;
 }
