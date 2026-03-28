@@ -139,7 +139,6 @@ set( SOURCES src/config.c
              src/systray/systraybar.c
              src/launcher/launcher.c
              src/launcher/apps-common.c
-             src/launcher/icon-theme-common.c
              src/launcher/xsettings-client.c
              src/launcher/xsettings-common.c
              src/taskbar/task.c
@@ -151,6 +150,7 @@ set( SOURCES src/config.c
              src/freespace/freespace.c
              src/separator/separator.c
              src/tint2rc.c
+             src/util/icon-theme-common.c
              src/util/area.c
              src/util/bt.c
              src/util/common.c

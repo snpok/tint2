@@ -6,7 +6,7 @@
 #include <gdk/gdk.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
-#include "../launcher/icon-theme-common.h"
+#include "../util/icon-theme-common.h"
 
 // panel
 extern GtkWidget *scale_relative_to_dpi, *scale_relative_to_screen_height;

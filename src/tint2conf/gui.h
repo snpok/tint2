@@ -5,7 +5,7 @@
 #include "properties.h"
 #include "properties_rw.h"
 #include "../launcher/apps-common.h"
-#include "../launcher/icon-theme-common.h"
+#include "../util/icon-theme-common.h"
 #include "../util/common.h"
 #include "strnatcmp.h"
 

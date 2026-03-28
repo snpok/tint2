@@ -31,7 +31,7 @@ set(SOURCES ../util/common.c
             ../util/server.c
             ../util/strlcat.c
             ../launcher/apps-common.c
-            ../launcher/icon-theme-common.c
+            ../util/icon-theme-common.c
             md4.c
             main.c
             properties.c
