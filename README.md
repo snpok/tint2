@@ -1,9 +1,14 @@
-# Latest stable release: 17.0.2
+# tint2 - snpok patch
 
-The final release of tint2 is 17.0.2.
-The code is frozen and no more feature requests are accepted.
+tint2 fork with some quick and dirty patches applied to make it more usable.
 
-Changes: https://gitlab.com/o9000/tint2/blob/17.0.2/ChangeLog
+- Fixes crashing systray
+- Tasks now piggyback on the launcher icon-config, allowing for gtk-theme icons
+  - NOTE: uses the `WM_CLASS` name to determine application, which might lead to problems for some applications
+
+Original frozen code can be found here:
+
+https://gitlab.com/o9000/tint2
 
 Documentation: [doc/tint2.md](doc/tint2.md)
 
@@ -12,7 +17,6 @@ Compile it with (after you install the [dependencies](https://gitlab.com/o9000/t
 ```
 git clone https://gitlab.com/o9000/tint2.git
 cd tint2
-git checkout 17.0.2
 mkdir build
 cd build
 cmake ..
