@@ -309,6 +309,12 @@ Imlib_Image task_get_icon(Window win, int icon_size)
         if (XGetClassHint(server.display, win, &hints))
         {
             char *new_icon_path = get_icon_path(icon_theme_wrapper, hints.res_name, icon_size, FALSE, FALSE);
+            if (!new_icon_path)
+            {
+                // Fallback to class-class in case of failure
+                new_icon_path = get_icon_path(icon_theme_wrapper, hints.res_class, icon_size, FALSE, FALSE);
+            }
+
             if (new_icon_path)
             {
                 img = load_image(new_icon_path, TRUE);
