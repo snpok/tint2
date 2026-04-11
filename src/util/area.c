@@ -773,6 +773,7 @@ gboolean full_width_area_is_under_mouse(void *obj, int x, int y)
 
 Area *find_area_under_mouse(void *root, int x, int y)
 {
+    if (root == NULL) return NULL;
     Area *result = root;
     Area *new_result = result;
     do {
